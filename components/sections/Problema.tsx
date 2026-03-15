@@ -5,53 +5,44 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 
 const painPoints = [
   {
-    title: "WhatsApp, llamadas, Excel. Todo llega, nada se cruza.",
+    title: "Primero hay que capturar todo lo que entra.",
     description:
-      "Los pedidos entran por todos lados. El dueño los anota, los recuerda o los pierde. No hay un solo lugar donde esté todo.",
+      "Pedidos por WhatsApp, llamadas, mensajes y planillas. Entre responder clientes y anotar información, se pueden perder ventas.",
   },
   {
-    title: "Si falta quien coordina, nadie sabe qué hacer.",
+    title: "Después hay que traducir eso en reparto real.",
     description:
-      "Toda la lógica de quién reparte qué, a dónde, y en qué orden está en la cabeza de una persona. Si esa persona no está un día, todo se desordena.",
+      "Asignar pedidos, coordinar choferes, ajustar rutas y resolver cambios en el momento consume tiempo y atención todo el día.",
   },
   {
-    title: "El día termina y hay que armar el rompecabezas para cerrar.",
+    title: "Y al final, hay que armar el cierre pieza por pieza.",
     description:
-      "Fotos sueltas en WhatsApp, cobros sin confirmar, pedidos que nadie sabe si llegaron. Cerrar el día es un acto de fe.",
+      "Fotos, pagos, entregas e incidencias no siempre quedan en un mismo lugar, así que cerrar bien depende de volver a juntar todo.",
   },
 ];
 
 export default function Problema() {
   return (
-    <section id="problema" className="relative overflow-hidden bg-slate-deep">
-      {/* Top gradient blending with hero */}
-      <div className="pointer-events-none absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-slate-deep to-transparent" />
-
-      {/* Subtle radial glow */}
-      <div className="pointer-events-none absolute left-1/2 top-1/3 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-negative/[0.03] blur-[100px]" />
-
-      <div className="relative mx-auto max-w-7xl px-5 py-24 lg:px-8 lg:py-32">
+    <section id="problema" className="relative overflow-hidden bg-[#071A17]">
+      <div className="relative mx-auto max-w-7xl px-5 py-24 pb-16 lg:px-8 lg:py-32 lg:pb-16">
         {/* Section header */}
         <ScrollReveal className="mb-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-negative/70">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#22B07D] sm:text-sm">
             El problema real
           </p>
         </ScrollReveal>
 
         <ScrollReveal delay={0.1}>
-          <h2 className="max-w-3xl font-[family-name:var(--font-heading)] text-[clamp(28px,4.5vw,46px)] font-extrabold leading-[1.1] tracking-[-1px] text-white">
-            Tu operación funciona porque tú estás en todo.{" "}
-            <span className="text-white/40">
-              Pero tiene un techo.
-            </span>
+          <h2 className="max-w-3xl font-[family-name:var(--font-heading)] text-[clamp(28px,4.5vw,46px)] font-extrabold leading-[1.1] tracking-[-1px] text-[#F3F4EF]">
+            Mientras más crece tu operación, <span className="text-[#22B07D]">más te exige estar en todo.</span>
           </h2>
         </ScrollReveal>
 
         <ScrollReveal delay={0.2}>
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/40 lg:text-lg">
-            Los pedidos llegan por WhatsApp, por llamada, por chat. Alguien los anota, los asigna
-            de memoria, coordina a los choferes por teléfono y al final del día tiene que reconstruir
-            qué se cobró y qué quedó pendiente. Si esa persona no está un día, la operación se complica.
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-[#A9B5AF] lg:text-lg">
+            Los pedidos llegan por distintos canales y alguien tiene que mantener todo en orden:
+            anotarlos, coordinarlos y cerrar el día entendiendo qué pasó en terreno. Cuando muchas cosas
+            dependen de una misma persona, la operación se complica.
           </p>
         </ScrollReveal>
 
@@ -62,16 +53,16 @@ export default function Problema() {
             {painPoints.map((point, i) => (
               <ScrollReveal key={i} delay={0.1 * (i + 1)}>
                 <div className="flex gap-4">
-                  <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-negative/10">
-                    <span className="text-sm font-bold text-negative/70">
+                  <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-[#22B07D]/15 bg-[#0D2420]">
+                    <span className="text-sm font-bold text-[#22B07D]">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                   </div>
                   <div>
-                    <h3 className="text-base font-semibold leading-snug text-white/90 lg:text-lg">
+                    <h3 className="text-base font-semibold leading-snug text-[#F3F4EF] lg:text-lg">
                       {point.title}
                     </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-white/40">
+                    <p className="mt-2 text-sm leading-relaxed text-[#A9B5AF]">
                       {point.description}
                     </p>
                   </div>

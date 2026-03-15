@@ -19,6 +19,7 @@ const steps = [
       "Pedidos de WhatsApp ingresan automáticamente por IA",
       "Ingreso manual en segundos desde el panel",
       "Estado visible desde el primer momento",
+      "Sin duplicados ni pedidos perdidos",
     ],
     icon: (
       <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -29,13 +30,14 @@ const steps = [
   {
     number: "02",
     label: "Planifica",
-    title: "Asigna entregas en un par de clicks",
+    title: "Asigna con claridad, no con llamadas",
     description:
-      "El operador ve los pedidos pendientes y los choferes disponibles. Asignar es arrastrar un pedido al chofer indicado. Sin llamadas, sin depender de la memoria.",
+      "Ves todo lo que hay que entregar en el día y lo asignas a cada chofer en segundos. Sin Excel, sin coordinación por teléfono, sin confusiones de último minuto.",
     bullets: [
-      "Vista de carga por chofer y vehículo",
-      "Pedidos urgentes destacados",
-      "Asignación clara, trazable, sin ambigüedad",
+      "Sugerencia de ruta por vehículo y zona",
+      "Ruta ajustable al criterio del operador",
+      "Capacidad de carga visible por vehículo",
+      "Cambios de último minuto sin desorden",
     ],
     icon: (
       <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -46,13 +48,14 @@ const steps = [
   {
     number: "03",
     label: "Ejecuta",
-    title: "El chofer sabe qué hacer, sin preguntarle a nadie",
+    title: "El chofer sabe exactamente qué hacer",
     description:
-      "Cada chofer ve sus entregas del día en orden, con dirección, cliente y detalle. Actualiza el estado con un toque. Sin llamar al jefe, sin depender de instrucciones verbales.",
+      "La app guía al chofer paso a paso: qué entregar, en qué orden, cómo registrarlo. No depende de instrucciones por WhatsApp ni de memoria.",
     bullets: [
-      "Ruta del día en la palma de su mano",
-      "Estado actualizado en tiempo real",
-      "El operador ve todo sin preguntar",
+      "Seguimiento de vehículos en tiempo real",
+      "Estado de cada entrega visible al instante",
+      "Conductores con ruta clara en la app móvil",
+      "Alertas de retraso o incidencia",
     ],
     icon: (
       <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -63,13 +66,15 @@ const steps = [
   {
     number: "04",
     label: "Registra evidencia",
-    title: "Cada entrega queda con prueba completa",
+    title: "Cada entrega queda documentada",
     description:
-      "Foto del producto entregado, firma del receptor, ubicación GPS y registro de pago. Todo automático, todo asociado al pedido. Sin fotos sueltas en WhatsApp que después nadie encuentra.",
+      "Foto, firma y estado registrado desde la app. Si algo falla, también queda registrado. Trazabilidad real, no suposiciones.",
     bullets: [
-      "Foto, firma digital y GPS automáticos",
-      "Registro de pago recibido",
-      "Evidencia asociada al pedido, siempre",
+      "Foto de entrega desde la app del conductor",
+      "Firma digital del receptor",
+      "Coordenadas GPS registradas automáticamente",
+      "Registro de método de pago contra entrega",
+      "Todo vinculado al pedido y al conductor",
     ],
     icon: (
       <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -80,13 +85,14 @@ const steps = [
   {
     number: "05",
     label: "Cierra el día",
-    title: "El día se cierra solo. Tú solo revisas.",
+    title: "Cierre del día en minutos, no en horas",
     description:
-      "Al final de la jornada, el resumen está listo: cuántas entregas se hicieron, quién las hizo, qué quedó pendiente, cuánto se cobró. Sin llamar a nadie, sin armar el puzzle.",
+      "Al terminar, tienes el resumen completo: qué se entregó, qué no, qué se cobró y qué quedó pendiente. El día cierra con datos, no con llamadas.",
     bullets: [
-      "Resumen automático por chofer",
-      "Evidencia completa de cada entrega",
-      "Incidentes y pendientes visibles",
+      "Resumen automático de entregas del día",
+      "Pendientes con detalle de cada caso",
+      "Exportable para administración o cliente",
+      "Historial acumulado de cada conductor",
     ],
     icon: (
       <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -108,16 +114,16 @@ export default function ComoFunciona() {
   const [active, setActive] = useState(0);
 
   return (
-    <section id="como-funciona" className="relative bg-warm-white">
+    <section id="como-funciona" className="relative bg-[#071A17]">
       <div className="mx-auto max-w-7xl px-5 py-24 lg:px-8 lg:py-32">
         {/* Section header */}
         <ScrollReveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-livio">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#22B07D]">
             Cómo funciona
           </p>
         </ScrollReveal>
         <ScrollReveal delay={0.1}>
-          <h2 className="mt-3 max-w-2xl font-[family-name:var(--font-heading)] text-[clamp(28px,4.5vw,44px)] font-extrabold leading-[1.1] tracking-[-1px] text-[#1A1A1A]">
+          <h2 className="mt-3 max-w-2xl font-[family-name:var(--font-heading)] text-[clamp(28px,4.5vw,44px)] font-extrabold leading-[1.1] tracking-[-1px] text-[#F3F4EF]">
             Un flujo simple que ordena tu operación de principio a fin.
           </h2>
         </ScrollReveal>
@@ -129,17 +135,17 @@ export default function ComoFunciona() {
               <button
                 key={i}
                 onClick={() => setActive(i)}
-                className={`flex shrink-0 items-center gap-2 rounded-xl px-4 py-3 text-sm font-medium transition-all ${
+                className={`flex shrink-0 items-center gap-2 rounded-xl border px-4 py-3 text-sm font-medium transition-all ${
                   active === i
-                    ? "bg-livio text-white shadow-lg shadow-livio/20"
-                    : "bg-black/[0.03] text-[#6B7280] hover:bg-black/[0.06]"
+                    ? "border-[#22B07D] bg-[#22B07D] text-white shadow-lg shadow-[#22B07D]/20"
+                    : "border-white/[0.07] bg-[#0D2420] text-[#A9B5AF] hover:bg-[#112820]"
                 }`}
               >
-                <span className={active === i ? "text-white/70" : "text-[#6B7280]/50"}>
+                <span className={active === i ? "text-white/80" : "text-[#9CA3AF]"}>
                   {step.icon}
                 </span>
                 <span className="whitespace-nowrap">
-                  <span className="mr-1.5 text-xs opacity-60">{step.number}</span>
+                  <span className={`mr-1.5 text-xs ${active === i ? "text-white/70" : "text-[#9CA3AF]"}`}>{step.number}</span>
                   {step.label}
                 </span>
               </button>
@@ -151,17 +157,17 @@ export default function ComoFunciona() {
         <div className="mt-10 grid gap-10 lg:grid-cols-2 lg:gap-16 lg:items-start">
           {/* Left: text */}
           <div className="lg:sticky lg:top-28">
-            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-livio/10">
-              <span className="font-[family-name:var(--font-heading)] text-lg font-bold text-livio">
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#22B07D]/10">
+              <span className="font-[family-name:var(--font-heading)] text-lg font-bold text-[#22B07D]">
                 {steps[active].number}
               </span>
             </div>
 
-            <h3 className="font-[family-name:var(--font-heading)] text-2xl font-bold tracking-[-0.5px] text-[#1A1A1A] lg:text-3xl">
+            <h3 className="font-[family-name:var(--font-heading)] text-2xl font-bold tracking-[-0.5px] text-[#F3F4EF] lg:text-3xl">
               {steps[active].title}
             </h3>
 
-            <p className="mt-4 text-base leading-relaxed text-[#6B7280] lg:text-lg">
+            <p className="mt-4 text-base leading-relaxed text-[#A9B5AF] lg:text-lg">
               {steps[active].description}
             </p>
 
@@ -169,7 +175,7 @@ export default function ComoFunciona() {
               {steps[active].bullets.map((b, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <svg
-                    className="mt-0.5 h-5 w-5 shrink-0 text-livio"
+                    className="mt-0.5 h-5 w-5 shrink-0 text-[#22B07D]"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -177,7 +183,7 @@ export default function ComoFunciona() {
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
-                  <span className="text-sm text-[#1A1A1A]/70">{b}</span>
+                  <span className="text-sm text-[#A9B5AF]">{b}</span>
                 </li>
               ))}
             </ul>
@@ -204,7 +210,7 @@ export default function ComoFunciona() {
               key={i}
               onClick={() => setActive(i)}
               className={`h-2 rounded-full transition-all ${
-                active === i ? "w-6 bg-livio" : "w-2 bg-black/10"
+                active === i ? "w-6 bg-[#22B07D]" : "w-2 bg-white/[0.12]"
               }`}
               aria-label={`Paso ${i + 1}`}
             />

@@ -2,8 +2,8 @@ export default function DriverAppMini() {
   return (
     <div className="w-[170px] overflow-hidden rounded-[1.4rem] border-[4px] border-[#1A1A1A] bg-white shadow-2xl shadow-black/40">
       {/* App header */}
-      <div className="bg-livio px-3 py-2">
-        <p className="text-[8px] text-white/60">Entrega 3 de 6</p>
+      <div className="bg-[#22B07D] px-3 py-2">
+        <p className="text-[8px] text-white/70">Entrega 3 de 6</p>
         <p className="font-[family-name:var(--font-heading)] text-[11px] font-bold text-white">
           El Fogón
         </p>
@@ -13,18 +13,18 @@ export default function DriverAppMini() {
       {/* Evidence section */}
       <div className="px-2.5 py-2 space-y-1.5">
         {/* Photo capture */}
-        <div className="rounded-lg border border-dashed border-livio/25 bg-livio/[0.03] p-2">
+        <div className="rounded-lg border border-dashed border-[#22B07D]/20 bg-[#22B07D]/[0.03] p-2">
           <div className="flex items-center gap-1.5 mb-1.5">
-            <div className="flex h-4 w-4 items-center justify-center rounded-full bg-positive/15">
-              <svg className="h-2.5 w-2.5 text-positive" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <div className="flex h-4 w-4 items-center justify-center rounded-full bg-[#34D399]/15">
+              <svg className="h-2.5 w-2.5 text-[#059669]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
               </svg>
             </div>
             <span className="text-[8px] font-semibold text-[#333]">Foto de entrega</span>
           </div>
           {/* Mini photo placeholder */}
-          <div className="h-[38px] w-full rounded-md bg-gradient-to-br from-[#e8f5e9] to-[#c8e6c9] flex items-center justify-center">
-            <svg className="h-4 w-4 text-positive/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+          <div className="h-[38px] w-full rounded-md bg-gradient-to-br from-[#EAF7F1] to-[#CFEFDF] flex items-center justify-center">
+            <svg className="h-4 w-4 text-[#22B07D]/50" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
               <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
             </svg>
@@ -32,10 +32,10 @@ export default function DriverAppMini() {
         </div>
 
         {/* Signature */}
-        <div className="rounded-lg border border-dashed border-livio/25 bg-livio/[0.03] p-2">
+        <div className="rounded-lg border border-dashed border-[#22B07D]/20 bg-[#22B07D]/[0.03] p-2">
           <div className="flex items-center gap-1.5 mb-1.5">
-            <div className="flex h-4 w-4 items-center justify-center rounded-full bg-positive/15">
-              <svg className="h-2.5 w-2.5 text-positive" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <div className="flex h-4 w-4 items-center justify-center rounded-full bg-[#35C992]/15">
+                <svg className="h-2.5 w-2.5 text-[#22B07D]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
               </svg>
             </div>
@@ -51,9 +51,9 @@ export default function DriverAppMini() {
 
         {/* GPS + Payment row */}
         <div className="flex gap-1.5">
-          <div className="flex-1 rounded-lg border border-positive/20 bg-positive/[0.04] p-1.5 flex items-center gap-1">
-            <div className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-positive/15">
-              <svg className="h-2 w-2 text-positive" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+          <div className="flex-1 rounded-lg border border-[#35C992]/20 bg-[#35C992]/[0.04] p-1.5 flex items-center gap-1">
+            <div className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#35C992]/15">
+              <svg className="h-2 w-2 text-[#22B07D]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
               </svg>
             </div>
@@ -62,9 +62,9 @@ export default function DriverAppMini() {
               <p className="text-[6px] text-[#999]">Verificado</p>
             </div>
           </div>
-          <div className="flex-1 rounded-lg border border-positive/20 bg-positive/[0.04] p-1.5 flex items-center gap-1">
-            <div className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-positive/15">
-              <svg className="h-2 w-2 text-positive" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+          <div className="flex-1 rounded-lg border border-[#35C992]/20 bg-[#35C992]/[0.04] p-1.5 flex items-center gap-1">
+            <div className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#35C992]/15">
+              <svg className="h-2 w-2 text-[#22B07D]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
               </svg>
             </div>
@@ -76,7 +76,7 @@ export default function DriverAppMini() {
         </div>
 
         {/* Confirm button */}
-        <button className="w-full rounded-lg bg-livio py-2 text-[9px] font-bold text-white shadow-sm">
+        <button className="w-full rounded-lg bg-[#1E8E69] py-2 text-[9px] font-bold text-white shadow-sm">
           Confirmar entrega
         </button>
       </div>

@@ -1,21 +1,21 @@
 export default function Footer() {
   return (
-    <footer className="bg-slate-deep">
+    <footer className="bg-[#071A17]">
       <div className="mx-auto max-w-7xl px-5 py-16 lg:px-8">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <span className="font-[family-name:var(--font-heading)] text-xl font-extrabold tracking-tight text-white">
+            <span className="font-[family-name:var(--font-heading)] text-xl font-extrabold tracking-tight text-[#F3F4EF]">
               LIVIO
             </span>
-            <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/40">
+            <p className="mt-3 max-w-xs text-sm leading-relaxed text-[#A9B5AF]">
               La operación logística de tu pyme, en orden.
             </p>
           </div>
 
           {/* Nav */}
           <div>
-            <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-white/30">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-[#A9B5AF]">
               Navegación
             </p>
             <ul className="space-y-2.5">
@@ -28,7 +28,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-sm text-white/50 transition-colors hover:text-white"
+                    className="text-sm text-[#A9B5AF] transition-colors hover:text-[#22B07D]"
                   >
                     {link.label}
                   </a>
@@ -39,16 +39,24 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-white/30">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-[#A9B5AF]">
               Contacto
             </p>
             <ul className="space-y-2.5">
               <li>
                 <a
-                  href="mailto:contacto@livio.cl"
-                  className="text-sm text-white/50 transition-colors hover:text-white"
+                  href="mailto:contacto@liviogistics.com"
+                  className="text-sm text-[#A9B5AF] transition-colors hover:text-[#22B07D]"
                 >
-                  contacto@livio.cl
+                  contacto@liviogistics.com
+                </a>
+              </li>
+              <li>
+                <a
+                  href="tel:+56998817621"
+                  className="text-sm text-[#A9B5AF] transition-colors hover:text-[#22B07D]"
+                >
+                  +56 9 9881 7621
                 </a>
               </li>
             </ul>
@@ -56,17 +64,17 @@ export default function Footer() {
 
           {/* Legal */}
           <div>
-            <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-white/30">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-[#A9B5AF]">
               Legal
             </p>
             <ul className="space-y-2.5">
               <li>
-                <span className="text-sm text-white/50">
+                <span className="text-sm text-[#A9B5AF]">
                   Política de privacidad
                 </span>
               </li>
               <li>
-                <span className="text-sm text-white/50">
+                <span className="text-sm text-[#A9B5AF]">
                   Términos de servicio
                 </span>
               </li>
@@ -76,7 +84,7 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="mt-12 border-t border-white/[0.06] pt-6 text-center">
-          <p className="text-xs text-white/30">
+          <p className="text-xs text-[#A9B5AF]/60">
             &copy; {new Date().getFullYear()} LIVIO. Todos los derechos reservados.
           </p>
         </div>

@@ -12,128 +12,92 @@ const flowSteps = [
 
 export default function Diferenciacion() {
   return (
-    <section className="relative overflow-hidden bg-slate-deep">
-      {/* Subtle gradient */}
-      <div className="pointer-events-none absolute left-1/2 top-0 h-[400px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-livio/[0.04] blur-[120px]" />
-
+    <section className="relative overflow-hidden bg-[#071A17]">
       <div className="relative mx-auto max-w-7xl px-5 py-24 lg:px-8 lg:py-32">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20 lg:items-center">
           {/* Left: copy */}
           <div>
             <ScrollReveal>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-livio/70">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#22B07D]">
                 Diferente de verdad
               </p>
             </ScrollReveal>
 
             <ScrollReveal delay={0.1}>
-              <h2 className="mt-3 font-[family-name:var(--font-heading)] text-[clamp(28px,4.5vw,44px)] font-extrabold leading-[1.1] tracking-[-1px] text-white">
-                No vendemos rutas.{" "}
-                <span className="text-livio">Ordenamos tu operación completa.</span>
+              <h2 className="mt-3 font-[family-name:var(--font-heading)] text-[clamp(28px,4.5vw,44px)] font-extrabold leading-[1.1] tracking-[-1px] text-[#F3F4EF]">
+                No vendemos rutas.
+                <br />
+                <span className="text-[#22B07D]">Ordenamos tu operación completa.</span>
               </h2>
             </ScrollReveal>
 
             <ScrollReveal delay={0.2}>
-              <p className="mt-5 text-base leading-relaxed text-white/45 lg:text-lg">
-                Las apps de rutas optimizan un pedazo del problema: por dónde ir. Pero tu
-                operación empieza mucho antes y termina mucho después de la ruta. Empieza
-                cuando llega el pedido y termina cuando cierras el día con evidencia de todo
-                lo que pasó.
+              <p className="mt-5 text-base leading-relaxed text-[#A9B5AF] lg:text-lg">
+                Hoy hay una persona que sabe dónde está cada chofer, qué pedidos van atrasados y cuánto se cobró. LIVIO hace que esa información no dependa de nadie en particular — queda visible, trazable y disponible para todo el equipo.
               </p>
             </ScrollReveal>
 
             <ScrollReveal delay={0.3}>
-              <p className="mt-4 text-base leading-relaxed text-white/45 lg:text-lg">
-                LIVIO cubre ese flujo completo. Desde que llega el primer pedido hasta que
-                cierras el día con evidencia. Eso es lo que resuelve LIVIO.
+              <p className="mt-4 text-base leading-relaxed text-[#A9B5AF]/60 lg:text-lg">
+                Desde que llega el primer pedido hasta que cierras el día con evidencia. Eso es lo que resuelve LIVIO.
               </p>
             </ScrollReveal>
           </div>
 
           {/* Right: visual diagram */}
           <ScrollReveal delay={0.2}>
-            <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 sm:p-8">
-              {/* Competitors bar */}
-              <div className="mb-8">
-                <p className="mb-3 text-xs font-medium uppercase tracking-wider text-white/30">
-                  Apps de rutas
-                </p>
-                <div className="relative">
-                  {/* Full track */}
-                  <div className="flex items-center gap-0">
-                    {flowSteps.map((step, i) => (
-                      <div key={i} className="flex flex-1 flex-col items-center">
-                        <div
-                          className={`flex h-10 w-10 items-center justify-center rounded-xl ${
-                            i === 2
-                              ? "bg-white/[0.08] ring-1 ring-white/10"
-                              : "bg-white/[0.03]"
-                          }`}
+            <div className="rounded-2xl border border-[#22B07D]/15 bg-[#0D2420] p-6 sm:p-8">
+              <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#22B07D]/60">
+                Flujo completo
+              </p>
+              <p className="mb-6 text-sm font-semibold text-[#F3F4EF]">
+                Desde el primer pedido hasta el cierre del día
+              </p>
+
+              <div className="flex items-start justify-between gap-1">
+                {flowSteps.map((step, i) => (
+                  <div key={i} className="flex flex-1 flex-col items-center gap-0">
+                    {/* Step */}
+                    <div className="flex flex-col items-center">
+                      <span className="mb-1.5 text-[9px] font-bold tracking-widest text-[#22B07D]/50">
+                        0{i + 1}
+                      </span>
+                      <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-[#22B07D]/20 bg-[#22B07D]/10 shadow-[0_0_12px_rgba(34,176,125,0.08)]">
+                        <svg
+                          className="h-5 w-5 text-[#22B07D]"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={1.5}
                         >
-                          <svg
-                            className={`h-4 w-4 ${i === 2 ? "text-white/50" : "text-white/15"}`}
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            strokeWidth={1.5}
-                          >
-                            <path strokeLinecap="round" strokeLinejoin="round" d={step.icon} />
-                          </svg>
-                        </div>
-                        <p className={`mt-2 text-[10px] sm:text-xs ${
-                          i === 2 ? "text-white/40 font-medium" : "text-white/15"
-                        }`}>
-                          {step.label}
-                        </p>
+                          <path strokeLinecap="round" strokeLinejoin="round" d={step.icon} />
+                        </svg>
                       </div>
-                    ))}
+                      <p className="mt-2 text-center text-[11px] font-semibold text-[#F3F4EF]">
+                        {step.label}
+                      </p>
+                    </div>
                   </div>
-                  {/* Connector line */}
-                  <div className="absolute top-5 left-[10%] right-[10%] h-px bg-white/[0.06]" />
-                  {/* Highlighted segment — only step 3 (Ejecución/Rutas) */}
-                  <div className="absolute top-4 left-[36%] w-[28%] h-3 rounded-full bg-white/[0.06] border border-white/[0.08]" />
-                </div>
-                <p className="mt-4 text-center text-xs text-white/25 italic">
-                  Solo optimizan por dónde ir
-                </p>
+                ))}
               </div>
 
-              {/* Divider */}
-              <div className="my-6 border-t border-white/[0.06]" />
-
-              {/* LIVIO bar */}
-              <div>
-                <p className="mb-3 text-xs font-medium uppercase tracking-wider text-livio/60">
-                  LIVIO
-                </p>
-                <div className="relative">
-                  <div className="flex items-center gap-0">
-                    {flowSteps.map((step, i) => (
-                      <div key={i} className="flex flex-1 flex-col items-center">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-livio/15 ring-1 ring-livio/20">
-                          <svg
-                            className="h-4 w-4 text-livio"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            strokeWidth={1.5}
-                          >
-                            <path strokeLinecap="round" strokeLinejoin="round" d={step.icon} />
-                          </svg>
-                        </div>
-                        <p className="mt-2 text-[10px] sm:text-xs font-medium text-livio/70">
-                          {step.label}
-                        </p>
-                      </div>
-                    ))}
+              {/* Arrows row — separate from icons so they never overlap */}
+              <div className="mt-[-42px] mb-[62px] flex items-center justify-between px-[22px]">
+                {flowSteps.slice(0, -1).map((_, i) => (
+                  <div key={i} className="flex flex-1 justify-center">
+                    <svg className="h-3 w-3 text-[#22B07D]/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    </svg>
                   </div>
-                  {/* Connector line — full */}
-                  <div className="absolute top-5 left-[10%] right-[10%] h-px bg-livio/30" />
-                  {/* Full coverage bar */}
-                  <div className="absolute top-4 left-[6%] right-[6%] h-3 rounded-full bg-livio/10 border border-livio/20" />
-                </div>
-                <p className="mt-4 text-center text-xs text-livio/50 font-medium">
-                  Cubre el flujo operativo completo
+                ))}
+              </div>
+
+              <div className="mt-8 flex items-center justify-center gap-2 rounded-xl border border-[#22B07D]/10 bg-[#071A17] px-4 py-2.5">
+                <svg className="h-4 w-4 text-[#22B07D]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <p className="text-xs font-medium text-[#A9B5AF]">
+                  Un solo sistema que cubre lo esencial
                 </p>
               </div>
             </div>

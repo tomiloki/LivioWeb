@@ -6,7 +6,7 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 const faqs = [
   {
     q: "¿Qué tan difícil es implementar LIVIO en mi empresa?",
-    a: "El onboarding lo hacemos nosotros contigo. No necesitas conocimientos técnicos. En la primera semana ya estás operando con el sistema.",
+    a: "El onboarding lo hacemos nosotros contigo. No necesitas conocimientos técnicos. En 2 semanas ya estás operando con el sistema.",
   },
   {
     q: "¿Mis choferes necesitan un celular especial?",
@@ -34,16 +34,16 @@ function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="border-b border-black/[0.06]">
+    <div className="border-b border-white/[0.08]">
       <button
         onClick={() => setOpen(!open)}
         className="flex w-full items-center justify-between py-5 text-left"
       >
-        <span className="pr-4 text-base font-medium text-[#1A1A1A] lg:text-lg">
+        <span className="pr-4 text-base font-medium text-[#F3F4EF] lg:text-lg">
           {q}
         </span>
         <svg
-          className={`h-5 w-5 shrink-0 text-[#6B7280] transition-transform duration-300 ${
+          className={`h-5 w-5 shrink-0 text-[#A9B5AF] transition-transform duration-300 ${
             open ? "rotate-180" : ""
           }`}
           fill="none"
@@ -59,7 +59,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
           open ? "max-h-48 pb-5" : "max-h-0"
         }`}
       >
-        <p className="text-sm leading-relaxed text-[#6B7280]">{a}</p>
+        <p className="text-sm leading-relaxed text-[#A9B5AF]">{a}</p>
       </div>
     </div>
   );
@@ -67,10 +67,10 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 
 export default function FAQ() {
   return (
-    <section className="relative bg-white">
+    <section className="relative bg-[#071A17]">
       <div className="mx-auto max-w-3xl px-5 py-24 lg:px-8 lg:py-32">
         <ScrollReveal>
-          <h2 className="text-center font-[family-name:var(--font-heading)] text-[clamp(28px,4vw,38px)] font-extrabold tracking-[-1px] text-[#1A1A1A]">
+          <h2 className="text-center font-[family-name:var(--font-heading)] text-[clamp(28px,4vw,38px)] font-extrabold tracking-[-1px] text-[#F3F4EF]">
             Preguntas frecuentes
           </h2>
         </ScrollReveal>
@@ -86,11 +86,11 @@ export default function FAQ() {
         {/* Bottom CTA */}
         <ScrollReveal delay={0.15}>
           <div className="mt-12 text-center">
-            <p className="text-sm text-[#6B7280]">
+            <p className="text-sm text-[#A9B5AF]">
               ¿Tienes otra pregunta?{" "}
               <a
                 href="#contacto"
-                className="font-medium text-livio transition-colors hover:text-livio-deep"
+                className="font-medium text-[#22B07D] transition-colors hover:text-[#1B9468]"
               >
                 Escríbenos directo
               </a>
