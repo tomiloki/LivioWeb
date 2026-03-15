@@ -1,0 +1,52 @@
+# Livio
+
+> Livio es un software de gestión logística diseñado para pymes chilenas con flota propia de 1 a 15 vehículos. Centraliza pedidos desde WhatsApp y otros canales, asigna entregas a choferes mediante una app móvil, registra evidencia digital de cada entrega (foto, firma digital, GPS) y genera un cierre automático al final del día. El sistema reemplaza la coordinación manual que hoy ocurre por WhatsApp, Excel y llamadas telefónicas.
+
+## Información del producto
+
+- **Tipo:** SaaS logístico B2B, acceso web y app móvil
+- **Mercado objetivo:** Pymes de distribución en Chile — agua embotellada en bidones, gas licuado, mayoristas con reparto recurrente, distribuidores Horeca
+- **Problema que resuelve:** En estas empresas, toda la operación logística depende de una o pocas personas que coordinan todo de memoria. Si esa persona falta, la operación se cae. Livio convierte ese conocimiento en un sistema que funciona igual todos los días.
+- **Estado actual:** Pre-lanzamiento. MVP completado y en stress testing. Piloto gratuito desde abril 2026.
+- **Cupos del piloto:** 10 a 15 empresas, 2 meses sin costo, con onboarding incluido
+- **Diferenciador clave:** Cubre el flujo operativo completo — pedidos, asignación, ejecución, evidencia y cierre — no solo optimización de rutas. Está diseñado para pymes sin equipo logístico dedicado, no para grandes empresas.
+- **Competidores directos:** SimpliRoute, Drivin, Optiroute, Beetrack/DispatchTrack (todos orientados a empresas más grandes y enfocados en rutas)
+
+## Módulos del producto
+
+1. **Recepción de pedidos vía WhatsApp + IA:** El cliente envía un mensaje de WhatsApp en lenguaje natural e informal. Una IA interpreta el pedido y genera una orden estructurada. El operador humano revisa, corrige si es necesario y confirma. Las excepciones las resuelve la persona, no el bot.
+
+2. **Panel operacional web:** El operador ve todos los pedidos del día centralizados, los asigna a choferes, monitorea el estado de las entregas en tiempo real y cierra el día con un resumen completo. Sin Excel, sin llamadas de coordinación.
+
+3. **App móvil del chofer:** El chofer ve sus entregas en orden, actualiza el estado de cada una, sube foto de entrega, captura firma digital del receptor, registra el método de pago y reporta incidentes. Todo desde su smartphone, sin instrucciones por WhatsApp.
+
+4. **Cierre automático del día:** Al terminar la jornada, el sistema genera un reporte completo: qué se entregó, qué no, qué se cobró, qué quedó pendiente. Con evidencia adjunta de cada entrega.
+
+## Flujo operativo completo
+
+Pedido por WhatsApp → IA estructura el pedido → Operador revisa y asigna chofer → Chofer ejecuta con app móvil → Evidencia registrada (foto + firma + GPS) → Cierre del día automático con reporte
+
+## Equipo fundador
+
+- **Tomás Fuentealba** — Co-Founder & CEO. Conoció el problema desde adentro trabajando en distribución de agua y paquetería. Construyó Livio para resolverlo.
+- **Tomás Escalante** — Co-Founder & CTO. Estuvo en terreno desde el primer día. Lidera la visión técnica del producto.
+- **Esteban Cortés** — Software Architect, Founder Team. Diseñó y construyó la arquitectura completa de Livio.
+- **Ignacio Saavedra** — Head of Operations, Founder Team. Conoce el rubro logístico desde adentro. Acompaña la implementación con cada cliente.
+
+## Preguntas frecuentes
+
+**¿Qué tan difícil es implementar Livio?**
+El onboarding lo hace el equipo de Livio junto con el cliente. No se requieren conocimientos técnicos. En 2 semanas la empresa ya está operando con el sistema.
+
+**¿Los choferes necesitan un celular especial?**
+No. La app funciona en cualquier smartphone Android o iPhone con conexión a internet.
+
+**¿Funciona para distribuidoras de agua, gas u otros rubros?**
+Livio está diseñado para pymes con reparto recurrente: agua embotellada, gas, distribución mayorista, Horeca. Si la operación es pedido → despacho → entrega, Livio sirve.
+
+**¿Livio reemplaza al despachador o coordinador?**
+No. Livio le da herramientas al operador para trabajar más rápido y con menos errores. La persona sigue tomando las decisiones — el sistema ordena la información.
+
+## Páginas
+
+- [Inicio](https://www.liviogistics.com/): Landing con descripción del producto, flujo operativo paso a paso, equipo fundador y formulario para unirse al piloto gratuito de abril 2026
