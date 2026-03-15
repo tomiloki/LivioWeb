@@ -108,7 +108,7 @@ export async function POST(req: Request) {
   const resend = new Resend(process.env.RESEND_API_KEY);
   const { error } = await resend.emails.send({
     from: "LIVIO Contacto <contacto@liviogistics.com>",
-    to: ["tescalante@liviogistics.com", "tfuentealba@liviogistics.com"],
+    to: ["t.escalante@liviogistics.com", "t.fuentealba@liviogistics.com"],
     replyTo: email,
     subject: `Nueva empresa piloto: ${empresa}`,
     html: `
