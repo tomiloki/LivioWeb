@@ -1,8 +1,6 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 // --- Rate limiting (in-memory) ---
 // Nota: se resetea en cold starts de Vercel, pero es suficiente para este volumen.
 const rateLimitStore = new Map<string, { count: number; resetAt: number }>();
@@ -107,6 +105,7 @@ export async function POST(req: Request) {
   }
 
   // 4. Envío de email
+  const resend = new Resend(process.env.RESEND_API_KEY);
   const { error } = await resend.emails.send({
     from: "LIVIO Contacto <contacto@liviogistics.com>",
     to: ["tescalante@liviogistics.com", "tfuentealba@liviogistics.com"],
