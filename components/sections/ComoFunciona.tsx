@@ -126,7 +126,7 @@ export default function ComoFunciona() {
   };
 
   return (
-    <section id="como-funciona" className="relative overflow-x-hidden bg-[#071A17]">
+    <section id="como-funciona" className="relative overflow-x-clip bg-[#071A17]">
       <div className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-32">
         {/* Section header */}
         <ScrollReveal>
