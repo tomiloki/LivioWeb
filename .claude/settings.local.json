@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__magicui__searchRegistryItems",
+      "mcp__magicui__getRegistryItem"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "magicui"
+  ]
+}

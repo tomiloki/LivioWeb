@@ -1,0 +1,87 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|MultiEdit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd $CLAUDE_PROJECT_DIR && npx prettier --write $(echo $CLAUDE_FILE_PATHS | tr ',' ' ') 2>/dev/null || true"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|MultiEdit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd $CLAUDE_PROJECT_DIR && npx eslint --fix $(echo $CLAUDE_FILE_PATHS | tr ',' ' ') 2>/dev/null || true"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|MultiEdit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "FILE_LIST=$(echo $CLAUDE_FILE_PATHS | tr ',' '\\n'); for f in $FILE_LIST; do if echo \"$f\" | grep -qE '\\.(ts|tsx)$'; then cd $CLAUDE_PROJECT_DIR && npx tsc --noEmit --skipLibCheck 2>&1 | head -20 || true; break; fi; done"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "INPUT=$(cat); CMD=$(echo $INPUT | jq -r '.tool_input.command // empty'); if echo \"$CMD\" | grep -qE 'rm\\s+-rf\\s+/|rm\\s+-rf\\s+\\.|git\\s+push.*--force.*main|git\\s+push.*main.*--force'; then echo 'BLOCKED: Operación peligrosa detectada. Usa una rama feature, no main.' >&2; exit 2; fi; exit 0"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|MultiEdit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "INPUT=$(cat); FILE=$(echo $INPUT | jq -r '.tool_input.file_path // .tool_input.path // empty'); if echo \"$FILE\" | grep -qE '^\\.env|secrets|credentials'; then echo 'BLOCKED: No editar archivos de credenciales.' >&2; exit 2; fi; exit 0"
+          }
+        ]
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "Read",
+      "Edit",
+      "MultiEdit",
+      "Write",
+      "Bash(npm run dev*)",
+      "Bash(npm run build*)",
+      "Bash(npm run lint*)",
+      "Bash(npx prettier*)",
+      "Bash(npx eslint*)",
+      "Bash(npx tsc*)",
+      "Bash(git status*)",
+      "Bash(git add*)",
+      "Bash(git commit*)",
+      "Bash(git checkout*)",
+      "Bash(git branch*)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(ls*)",
+      "Bash(cat*)",
+      "Bash(find*)",
+      "Bash(grep*)",
+      "Bash(head*)",
+      "Bash(tail*)",
+      "Bash(wc*)",
+      "Bash(mkdir*)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./.env.local)"
+    ]
+  }
+}
