@@ -126,7 +126,7 @@ export default function ComoFunciona() {
   };
 
   return (
-    <section id="como-funciona" className="relative bg-[#071A17]">
+    <section id="como-funciona" className="relative overflow-x-hidden bg-[#071A17]">
       <div className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-32">
         {/* Section header */}
         <ScrollReveal>
@@ -140,9 +140,9 @@ export default function ComoFunciona() {
           </h2>
         </ScrollReveal>
 
-        {/* Step tabs — horizontal scrollable on mobile */}
+        {/* Step tabs — desktop only */}
         <ScrollReveal delay={0.15}>
-          <div className="mt-10 flex gap-1 overflow-x-auto pb-2 scrollbar-hide sm:gap-2">
+          <div className="mt-10 hidden gap-1 overflow-x-auto pb-2 scrollbar-hide lg:flex lg:gap-2">
             {steps.map((step, i) => (
               <button
                 key={i}
@@ -162,6 +162,41 @@ export default function ComoFunciona() {
                 </span>
               </button>
             ))}
+          </div>
+
+          {/* Mobile step navigator */}
+          <div className="mt-8 flex items-center justify-between lg:hidden">
+            <button
+              onClick={() => setActive((prev) => Math.max(prev - 1, 0))}
+              disabled={active === 0}
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.1] bg-[#0D2420] text-[#A9B5AF] transition-opacity disabled:opacity-25"
+              aria-label="Paso anterior"
+            >
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <div className="text-center">
+              <span className="font-[family-name:var(--font-heading)] text-sm font-bold text-[#22B07D]">
+                {steps[active].number}
+              </span>
+              <span className="ml-2 text-sm font-medium text-[#F3F4EF]">
+                {steps[active].label}
+              </span>
+              <p className="mt-0.5 text-[10px] uppercase tracking-widest text-[#A9B5AF]/40">
+                {active + 1} de {steps.length}
+              </p>
+            </div>
+            <button
+              onClick={() => setActive((prev) => Math.min(prev + 1, steps.length - 1))}
+              disabled={active === steps.length - 1}
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.1] bg-[#0D2420] text-[#A9B5AF] transition-opacity disabled:opacity-25"
+              aria-label="Paso siguiente"
+            >
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
           </div>
         </ScrollReveal>
 
@@ -206,15 +241,25 @@ export default function ComoFunciona() {
           </div>
 
           {/* Right: mockup */}
-          <div className="flex justify-center">
+          <div className="flex flex-col items-center gap-4">
             <div
-              className="w-full max-w-120 transition-all duration-500 ease-out sm:max-w-none"
+              className="w-full transition-all duration-500 ease-out"
               key={active}
               style={{
                 animation: "fade-up 0.5s ease-out both",
               }}
             >
               {mockups[active]}
+            </div>
+            {/* Swipe hint — mobile only */}
+            <div className="flex items-center gap-2 lg:hidden">
+              <svg className="h-3.5 w-3.5 animate-[pulse_2s_ease-in-out_infinite] text-[#22B07D]/50" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+              <span className="text-[10px] uppercase tracking-[0.2em] text-[#A9B5AF]/40">desliza</span>
+              <svg className="h-3.5 w-3.5 animate-[pulse_2s_ease-in-out_infinite] text-[#22B07D]/50" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
             </div>
           </div>
         </div>
