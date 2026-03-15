@@ -187,16 +187,16 @@ export default function Hero() {
 
         {/* Right column — Mockup */}
         <div
-          className="mt-12 flex flex-1 justify-center lg:mt-0 lg:justify-end"
+          className="mt-12 flex w-full min-w-0 flex-1 justify-center lg:mt-0 lg:w-auto lg:justify-end"
           style={{ animation: "fade-up 0.8s ease-out 0.35s both" }}
         >
           <div
-            className="relative"
+            className="relative w-full min-w-0 lg:w-auto"
             style={{ animation: "float 6s ease-in-out infinite" }}
           >
             {/* Glow behind mockup */}
             <div className="absolute -inset-8 rounded-3xl bg-[#22B07D]/[0.03] blur-[65px]" />
-            <div className="relative">
+            <div className="relative w-full min-w-0">
               <HeroMockupComposition />
             </div>
           </div>

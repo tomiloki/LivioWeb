@@ -29,7 +29,7 @@ export default function OrdersPanelMockup() {
         <span className="h-2.5 w-2.5 rounded-full bg-[#FF605C]" />
         <span className="h-2.5 w-2.5 rounded-full bg-[#FFBD44]" />
         <span className="h-2.5 w-2.5 rounded-full bg-[#00CA4E]" />
-        <span className="ml-3 flex-1 text-[11px] text-[#8A948E]">app.livio.cl/pedidos</span>
+        <span className="ml-3 min-w-0 flex-1 truncate text-[11px] text-[#8A948E]">app.livio.cl/pedidos</span>
         <span className="text-[11px] text-[#8A948E]">Lunes 14/03</span>
       </div>
 

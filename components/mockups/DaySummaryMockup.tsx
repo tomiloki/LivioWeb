@@ -33,7 +33,7 @@ export default function DaySummaryMockup() {
         {/* URL bar */}
         <div className="flex flex-1 items-center gap-2 rounded-md bg-[#FAF9F5] border border-[#E0DDD6] px-3 py-1">
           <svg className="h-3 w-3 shrink-0 text-[#999]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
-          <span className="text-[11px] text-[#999]">app.livio.cl/dashboard</span>
+          <span className="min-w-0 truncate text-[11px] text-[#999]">app.livio.cl/dashboard</span>
         </div>
         {/* User avatar */}
         <div className="flex items-center gap-2">
@@ -80,19 +80,19 @@ export default function DaySummaryMockup() {
         {/* Main content */}
         <div className="flex-1 overflow-hidden bg-[#FAF9F5] p-4">
           {/* Header */}
-          <div className="mb-3 flex items-center justify-between">
-            <div>
+          <div className="mb-3 flex items-center justify-between gap-2">
+            <div className="min-w-0">
               <h3 className="font-[family-name:var(--font-heading)] text-sm font-bold text-[#1A1A1A]">
                 Resumen del día
               </h3>
-              <p className="text-[11px] text-[#6B7280]">Viernes 14 de marzo, 2026</p>
+              <p className="truncate text-[11px] text-[#6B7280]">Viernes 14 de marzo, 2026</p>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex shrink-0 items-center gap-2">
               <div className="flex items-center gap-1.5 rounded-lg bg-[#22B07D]/10 px-2.5 py-1">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#22B07D] animate-[pulse-soft_1.5s_ease-in-out_infinite]" />
                 <span className="text-[11px] font-semibold text-[#22B07D]">94% completado</span>
               </div>
-              <div className="rounded-lg border border-[#E0DDD6] bg-white px-2.5 py-1">
+              <div className="hidden rounded-lg border border-[#E0DDD6] bg-white px-2.5 py-1 sm:block">
                 <span className="text-[10px] text-[#6B7280]">10:45 AM</span>
               </div>
             </div>
