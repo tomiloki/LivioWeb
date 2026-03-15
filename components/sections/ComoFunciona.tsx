@@ -241,9 +241,9 @@ export default function ComoFunciona() {
           </div>
 
           {/* Right: mockup */}
-          <div className="flex flex-col items-center gap-4">
+          <div className="flex w-full min-w-0 flex-col items-center gap-4">
             <div
-              className="w-full transition-all duration-500 ease-out"
+              className="w-full min-w-0 transition-all duration-500 ease-out"
               key={active}
               style={{
                 animation: "fade-up 0.5s ease-out both",
