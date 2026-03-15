@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useRef } from "react";
 import Image from "next/image";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
@@ -31,7 +32,51 @@ const team: { name: string; role: string; bio: string; photo: string; objectPosi
   },
 ];
 
+function TeamCard({ member }: { member: typeof team[0] }) {
+  return (
+    <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-[#22B07D]/10 bg-[#0D2420] transition-all hover:border-[#22B07D]/25 hover:shadow-lg hover:shadow-black/30">
+      <div className="relative aspect-[4/5] overflow-hidden bg-[#0A1C18]">
+        <Image
+          src={member.photo}
+          alt={member.name}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+          style={{ objectPosition: member.objectPosition ?? "center top" }}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+        />
+        <div className="absolute bottom-3 left-3">
+          <span className="rounded-md bg-[#22B07D] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-white backdrop-blur-sm">
+            {member.role.split(" — ")[0]}
+          </span>
+        </div>
+      </div>
+      <div className="p-4">
+        <h3 className="font-[family-name:var(--font-heading)] text-base font-bold text-[#F3F4EF]">
+          {member.name}
+        </h3>
+        <p className="mt-2 text-sm leading-relaxed text-[#A9B5AF]">
+          {member.bio}
+        </p>
+      </div>
+    </div>
+  );
+}
+
 export default function Equipo() {
+  const [activeCard, setActiveCard] = useState(0);
+  const touchStartX = useRef<number>(0);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const delta = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(delta) < 50) return;
+    if (delta > 0) setActiveCard((prev) => Math.min(prev + 1, team.length - 1));
+    else setActiveCard((prev) => Math.max(prev - 1, 0));
+  };
+
   return (
     <section id="equipo" className="relative bg-[#071A17]">
       <div className="mx-auto max-w-7xl px-5 py-24 lg:px-8 lg:py-32">
@@ -53,39 +98,39 @@ export default function Equipo() {
           </p>
         </ScrollReveal>
 
-        {/* Team grid */}
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {/* Mobile carousel — visible only on < sm */}
+        <div
+          className="mt-14 sm:hidden"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
+          <div
+            key={activeCard}
+            style={{ animation: "fade-up 0.3s ease-out both" }}
+          >
+            <TeamCard member={team[activeCard]} />
+          </div>
+
+          {/* Dots */}
+          <div className="mt-6 flex justify-center gap-2">
+            {team.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setActiveCard(i)}
+                className={`h-2 rounded-full transition-all ${
+                  activeCard === i ? "w-6 bg-[#22B07D]" : "w-2 bg-white/[0.12]"
+                }`}
+                aria-label={`Ver ${team[i].name}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop grid — hidden on mobile */}
+        <div className="mt-14 hidden gap-5 sm:grid sm:grid-cols-2 lg:grid-cols-4">
           {team.map((member, i) => (
             <ScrollReveal key={member.name} delay={0.1 * (i + 1)} className="h-full">
-              <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-[#22B07D]/10 bg-[#0D2420] transition-all hover:border-[#22B07D]/25 hover:shadow-lg hover:shadow-black/30">
-                {/* Photo */}
-                <div className="relative aspect-[4/5] overflow-hidden bg-[#0A1C18]">
-                  <Image
-                    src={member.photo}
-                    alt={member.name}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                    style={{ objectPosition: member.objectPosition ?? "center top" }}
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  />
-                  {/* Role badge */}
-                  <div className="absolute bottom-3 left-3">
-                    <span className="rounded-md bg-[#22B07D] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-white backdrop-blur-sm">
-                      {member.role.split(" — ")[0]}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Info */}
-                <div className="p-4">
-                  <h3 className="font-[family-name:var(--font-heading)] text-base font-bold text-[#F3F4EF]">
-                    {member.name}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-[#A9B5AF]">
-                    {member.bio}
-                  </p>
-                </div>
-              </div>
+              <TeamCard member={member} />
             </ScrollReveal>
           ))}
         </div>

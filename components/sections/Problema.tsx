@@ -24,7 +24,7 @@ const painPoints = [
 export default function Problema() {
   return (
     <section id="problema" className="relative overflow-hidden bg-[#071A17]">
-      <div className="relative mx-auto max-w-7xl px-5 py-24 pb-16 lg:px-8 lg:py-32 lg:pb-16">
+      <div className="relative mx-auto max-w-7xl px-5 py-16 pb-12 lg:px-8 lg:py-32 lg:pb-16">
         {/* Section header */}
         <ScrollReveal className="mb-6">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#22B07D] sm:text-sm">

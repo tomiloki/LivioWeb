@@ -45,7 +45,7 @@ export default function DaySummaryMockup() {
       </div>
 
       {/* App shell */}
-      <div className="flex h-[380px]">
+      <div className="flex h-auto min-h-[300px] sm:h-[380px]">
         {/* Sidebar */}
         <div className="flex w-[52px] shrink-0 flex-col items-center gap-1 border-r border-[#E8E5DE] bg-[#F0EDE6] py-3">
           {/* Logo */}
@@ -99,7 +99,7 @@ export default function DaySummaryMockup() {
           </div>
 
           {/* Stats row */}
-          <div className="mb-3 grid grid-cols-4 gap-2">
+          <div className="mb-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
             {[
               { label: "Total entregas", value: "18", sub: "programadas", color: "text-[#1A1A1A]" },
               { label: "Completadas", value: "17", sub: "94.4%", color: "text-[#22B07D]" },
@@ -126,7 +126,7 @@ export default function DaySummaryMockup() {
           </div>
 
           {/* Two columns */}
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {/* Drivers */}
             <div>
               <div className="mb-2 flex items-center justify-between">
@@ -136,8 +136,8 @@ export default function DaySummaryMockup() {
                 <span className="text-[9px] text-[#22B07D]">3 en calle</span>
               </div>
               <div className="space-y-1.5">
-                {drivers.map((d) => (
-                  <div key={d.name} className="flex items-center justify-between rounded-lg bg-white px-2.5 py-2 border border-[#E8E5DE]">
+                {drivers.map((d, i) => (
+                  <div key={d.name} className={`flex items-center justify-between rounded-lg bg-white px-2.5 py-2 border border-[#E8E5DE] ${i >= 2 ? "hidden sm:flex" : ""}`}>
                     <div className="flex items-center gap-2">
                       <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#22B07D]/12 text-[10px] font-bold text-[#22B07D]">
                         {d.name[0]}
@@ -156,7 +156,7 @@ export default function DaySummaryMockup() {
             </div>
 
             {/* Recent activity */}
-            <div>
+            <div className="hidden sm:block">
               <div className="mb-2 flex items-center justify-between">
                 <p className="text-[10px] font-semibold uppercase tracking-wider text-[#9CA3AF]">
                   Últimas entregas

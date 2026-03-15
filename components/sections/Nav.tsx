@@ -66,7 +66,7 @@ export default function Nav() {
         {/* Mobile hamburger */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="flex flex-col gap-1.5 md:hidden"
+          className="-mr-2 flex flex-col items-center justify-center gap-1.5 p-2 md:hidden"
           aria-label="Abrir menú"
         >
           <span

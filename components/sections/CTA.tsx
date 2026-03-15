@@ -38,7 +38,7 @@ export default function CTA() {
   return (
     <section id="contacto" className="relative bg-[#071A17]">
       <div>
-        <div className="mx-auto max-w-7xl px-5 py-24 lg:px-8 lg:py-32">
+        <div className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-32">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
             {/* Left: urgency copy + benefits */}
             <div>

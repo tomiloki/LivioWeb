@@ -111,7 +111,7 @@ export default function Hero() {
 
           {/* Headline */}
           <h1
-            className="font-[family-name:var(--font-heading)] text-[clamp(36px,5.5vw,58px)] font-extrabold leading-[1.08] tracking-[-1.5px] text-[#F3F4EF]"
+            className="font-[family-name:var(--font-heading)] text-[clamp(30px,5.5vw,58px)] font-extrabold leading-[1.08] tracking-[-1.5px] text-[#F3F4EF]"
             style={{ animation: "fade-up 0.7s ease-out 0.1s both" }}
           >
             Todo lo que hoy coordinas de memoria{" "}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import OrdersPanelMockup from "@/components/mockups/OrdersPanelMockup";
 import AssignmentMockup from "@/components/mockups/AssignmentMockup";
@@ -112,10 +112,22 @@ const mockups = [
 
 export default function ComoFunciona() {
   const [active, setActive] = useState(0);
+  const touchStartX = useRef<number>(0);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const delta = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(delta) < 50) return;
+    if (delta > 0) setActive((prev) => Math.min(prev + 1, steps.length - 1));
+    else setActive((prev) => Math.max(prev - 1, 0));
+  };
 
   return (
     <section id="como-funciona" className="relative bg-[#071A17]">
-      <div className="mx-auto max-w-7xl px-5 py-24 lg:px-8 lg:py-32">
+      <div className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-32">
         {/* Section header */}
         <ScrollReveal>
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#22B07D]">
@@ -154,7 +166,11 @@ export default function ComoFunciona() {
         </ScrollReveal>
 
         {/* Content area */}
-        <div className="mt-10 grid gap-10 lg:grid-cols-2 lg:gap-16 lg:items-start">
+        <div
+          className="mt-10 grid gap-10 lg:grid-cols-2 lg:gap-16 lg:items-start"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
           {/* Left: text */}
           <div className="lg:sticky lg:top-28">
             <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#22B07D]/10">
@@ -192,7 +208,7 @@ export default function ComoFunciona() {
           {/* Right: mockup */}
           <div className="flex justify-center">
             <div
-              className="w-full transition-all duration-500 ease-out"
+              className="w-full max-w-120 transition-all duration-500 ease-out sm:max-w-none"
               key={active}
               style={{
                 animation: "fade-up 0.5s ease-out both",

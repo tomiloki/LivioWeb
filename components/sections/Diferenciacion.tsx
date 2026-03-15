@@ -13,7 +13,7 @@ const flowSteps = [
 export default function Diferenciacion() {
   return (
     <section className="relative overflow-hidden bg-[#071A17]">
-      <div className="relative mx-auto max-w-7xl px-5 py-24 lg:px-8 lg:py-32">
+      <div className="relative mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-32">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20 lg:items-center">
           {/* Left: copy */}
           <div>

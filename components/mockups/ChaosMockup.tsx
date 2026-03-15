@@ -1,6 +1,6 @@
 export default function ChaosMockup() {
   return (
-    <div className="relative mx-auto h-[520px] w-full max-w-[580px] sm:h-[560px]">
+    <div className="relative mx-auto h-[400px] w-full max-w-[580px] sm:h-[560px]">
 
       {/* ── CAPA 1: Excel ── */}
       <div
@@ -138,7 +138,7 @@ export default function ChaosMockup() {
 
       {/* ── CAPA 3: Llamadas perdidas ── */}
       <div
-        className="absolute bottom-[118px] left-[28px] z-30 w-[210px] overflow-hidden rounded-xl border border-gray-200/80 bg-white shadow-[0_16px_48px_rgba(0,0,0,0.28),0_4px_12px_rgba(0,0,0,0.12)]"
+        className="absolute bottom-[80px] left-[28px] z-30 w-[210px] sm:bottom-[118px] overflow-hidden rounded-xl border border-gray-200/80 bg-white shadow-[0_16px_48px_rgba(0,0,0,0.28),0_4px_12px_rgba(0,0,0,0.12)]"
         style={{ transform: "rotate(-2deg)" }}
       >
         <div className="flex items-center gap-1.5 border-b border-gray-100 bg-gray-50 px-3 py-1.5">
@@ -169,7 +169,7 @@ export default function ChaosMockup() {
 
       {/* ── CAPA 3: Mini mapa (Google Maps style) ── */}
       <div
-        className="absolute bottom-24 right-8 z-30 w-[230px] overflow-hidden rounded-xl border border-gray-200/80 bg-white shadow-[0_16px_48px_rgba(0,0,0,0.28),0_4px_12px_rgba(0,0,0,0.12)] sm:w-[245px]"
+        className="absolute bottom-14 right-8 z-30 w-[230px] sm:bottom-24 overflow-hidden rounded-xl border border-gray-200/80 bg-white shadow-[0_16px_48px_rgba(0,0,0,0.28),0_4px_12px_rgba(0,0,0,0.12)] sm:w-[245px]"
         style={{ transform: "rotate(-1.5deg)" }}
       >
         {/* Header barra de búsqueda */}
@@ -311,7 +311,7 @@ export default function ChaosMockup() {
 
       {/* Post-it 2 — abajo izquierda, bajo las llamadas (bottom ~390) */}
       <div
-        className="absolute bottom-[160px] left-[34%] z-40 w-[148px] shadow-[4px_6px_14px_rgba(0,0,0,0.22)]"
+        className="absolute bottom-[118px] left-[34%] z-40 w-[148px] sm:bottom-[160px] shadow-[4px_6px_14px_rgba(0,0,0,0.22)]"
         style={{ transform: "rotate(-3deg)" }}
       >
         <div className="relative border-l-[3px] border-l-[#C17F4E]/50 bg-[#F7C896] px-3 pb-3 pt-3">

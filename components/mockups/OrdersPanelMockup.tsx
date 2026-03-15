@@ -84,7 +84,7 @@ export default function OrdersPanelMockup() {
 
           {/* Orders list */}
           <div className="space-y-1.5">
-            {orders.map((o) => {
+            {orders.map((o, i) => {
               const meta = statusMeta[o.status];
               const isWA = o.channel === "WhatsApp";
               const isNew = o.status === "Nuevo";

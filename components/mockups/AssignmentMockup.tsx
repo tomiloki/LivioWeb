@@ -79,7 +79,7 @@ export default function AssignmentMockup() {
                   )}
                 </div>
 
-                {/* Assign dropdown — shown open on first item */}
+                {/* First item shows open dropdown, rest show closed button */}
                 {idx === 0 ? (
                   <div className="mt-2">
                     <div className="rounded-md border border-[#22B07D] bg-white shadow-md">
