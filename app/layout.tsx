@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.png",
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
         alt: "Livio — Software de gestión logística para pymes de distribución en Chile",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     title: "Livio — Software de gestión logística para pymes con flota propia",
     description:
       "Centraliza pedidos, guía a tus choferes y cierra el día con evidencia. El sistema operativo logístico para pymes de distribución en Chile.",
-    images: ["/og-image.png"],
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,
