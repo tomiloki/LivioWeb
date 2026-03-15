@@ -16,6 +16,7 @@ export default function CTA() {
   const [email, setEmail] = useState("");
   const [telefono, setTelefono] = useState("");
   const [operacion, setOperacion] = useState("");
+  const [hp, setHp] = useState(""); // honeypot — debe quedar vacío
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   async function handleSubmit(e: React.FormEvent) {
@@ -25,7 +26,7 @@ export default function CTA() {
       const res = await fetch("/api/contacto", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ empresa, email, telefono, operacion }),
+        body: JSON.stringify({ empresa, email, telefono, operacion, _hp: hp }),
       });
       if (!res.ok) throw new Error();
       setStatus("success");
@@ -130,6 +131,17 @@ export default function CTA() {
                   </div>
                 ) : (
                   <form className="space-y-4 p-6 sm:p-8" onSubmit={handleSubmit}>
+                    {/* Honeypot — oculto para humanos, los bots lo rellenan */}
+                    <input
+                      type="text"
+                      name="_hp"
+                      value={hp}
+                      onChange={(e) => setHp(e.target.value)}
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                      style={{ display: "none" }}
+                    />
                     {/* Row 1: empresa + teléfono */}
                     <div className="grid gap-4 sm:grid-cols-2">
                       <div>
@@ -140,6 +152,7 @@ export default function CTA() {
                           id="empresa"
                           type="text"
                           required
+                          autoComplete="organization"
                           value={empresa}
                           onChange={(e) => setEmpresa(e.target.value)}
                           placeholder="Distribuidora Los Andes"
@@ -153,6 +166,7 @@ export default function CTA() {
                         <input
                           id="telefono"
                           type="tel"
+                          autoComplete="tel"
                           value={telefono}
                           onChange={(e) => setTelefono(e.target.value)}
                           placeholder="+56 9 1234 5678"
@@ -170,6 +184,7 @@ export default function CTA() {
                         id="email"
                         type="email"
                         required
+                        autoComplete="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="tu@empresa.cl"

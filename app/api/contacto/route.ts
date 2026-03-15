@@ -3,15 +3,112 @@ import { NextResponse } from "next/server";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+// --- Rate limiting (in-memory) ---
+// Nota: se resetea en cold starts de Vercel, pero es suficiente para este volumen.
+const rateLimitStore = new Map<string, { count: number; resetAt: number }>();
+const RATE_LIMIT_MAX = 5;
+const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000; // 1 hora
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now();
+  const entry = rateLimitStore.get(ip);
+  if (!entry || now > entry.resetAt) {
+    rateLimitStore.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
+    return true;
+  }
+  if (entry.count >= RATE_LIMIT_MAX) return false;
+  entry.count++;
+  return true;
+}
+
+// Limpia entradas expiradas ocasionalmente para no acumular memoria
+function pruneExpired() {
+  const now = Date.now();
+  for (const [ip, entry] of rateLimitStore) {
+    if (now > entry.resetAt) rateLimitStore.delete(ip);
+  }
+}
+
+// --- Sanitización ---
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#x27;");
+}
+
+function sanitize(value: unknown, maxLength: number): string {
+  if (typeof value !== "string") return "";
+  return escapeHtml(value.trim().slice(0, maxLength));
+}
+
+// --- Validación básica de email ---
+function isValidEmail(email: string): boolean {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
 export async function POST(req: Request) {
-  const { empresa, email, telefono, operacion } = await req.json();
+  // 1. Verificación de origen
+  const origin = req.headers.get("origin") ?? "";
+  const allowedOrigins = [
+    "https://liviogistics.com",
+    "https://www.liviogistics.com",
+    ...(process.env.NODE_ENV === "development" ? ["http://localhost:3000"] : []),
+  ];
+  if (!allowedOrigins.includes(origin)) {
+    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+  }
+
+  // 2. Rate limiting por IP
+  const ip =
+    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
+
+  if (Math.random() < 0.1) pruneExpired(); // limpiar ~10% de las veces
+
+  if (!checkRateLimit(ip)) {
+    return NextResponse.json(
+      { error: "Demasiadas solicitudes. Intenta en una hora." },
+      { status: 429 }
+    );
+  }
+
+  // 3. Parseo y validación del body
+  let body: unknown;
+  try {
+    body = await req.json();
+  } catch {
+    return NextResponse.json({ error: "Solicitud inválida." }, { status: 400 });
+  }
+
+  if (typeof body !== "object" || body === null) {
+    return NextResponse.json({ error: "Solicitud inválida." }, { status: 400 });
+  }
+
+  const raw = body as Record<string, unknown>;
+
+  // Honeypot: si viene relleno, es un bot
+  if (raw._hp) {
+    return NextResponse.json({ ok: true }); // respuesta silenciosa
+  }
+
+  const empresa = sanitize(raw.empresa, 120);
+  const email = sanitize(raw.email, 120);
+  const telefono = sanitize(raw.telefono, 30);
+  const operacion = sanitize(raw.operacion, 1000);
 
   if (!empresa || !email) {
     return NextResponse.json({ error: "Faltan campos obligatorios." }, { status: 400 });
   }
 
+  if (!isValidEmail(email)) {
+    return NextResponse.json({ error: "Email inválido." }, { status: 400 });
+  }
+
+  // 4. Envío de email
   const { error } = await resend.emails.send({
-    from: "LIVIO Contacto <onboarding@resend.dev>",
+    from: "LIVIO Contacto <contacto@liviogistics.com>",
     to: ["tescalante@liviogistics.com", "tfuentealba@liviogistics.com"],
     replyTo: email,
     subject: `Nueva empresa piloto: ${empresa}`,
@@ -37,7 +134,7 @@ export async function POST(req: Request) {
             <td style="padding:10px 12px;background:#FAFAF8;color:#374151">${operacion || "—"}</td>
           </tr>
         </table>
-        <p style="margin-top:24px;font-size:12px;color:#9CA3AF">Enviado desde liviogistics.com</p>
+        <p style="margin-top:24px;font-size:12px;color:#9CA3AF">Enviado desde liviogistics.com · IP: ${escapeHtml(ip)}</p>
       </div>
     `,
   });
