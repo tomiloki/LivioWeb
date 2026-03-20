@@ -114,8 +114,8 @@ export default function Hero() {
             className="font-[family-name:var(--font-heading)] text-[clamp(30px,5.5vw,58px)] font-extrabold leading-[1.08] tracking-[-1.5px] text-[#F3F4EF]"
             style={{ animation: "fade-up 0.7s ease-out 0.1s both" }}
           >
-            Todo lo que hoy coordinas de memoria{" "}
-            <span className="text-[#22B07D]">en un solo sistema.</span>
+            Pedidos, choferes y cierre del día —{" "}
+            <span className="text-[#22B07D]">sin el caos de WhatsApp y Excel.</span>
           </h1>
 
           {/* Subtext */}
@@ -123,7 +123,8 @@ export default function Hero() {
             className="mt-5 max-w-[480px] text-base leading-relaxed text-[#A9B5AF] lg:text-lg"
             style={{ animation: "fade-up 0.7s ease-out 0.2s both" }}
           >
-            Deja de depender de que una persona esté en todo para que la operación no se caiga. LIVIO centraliza tus pedidos, guía a tus choferes y cierra el día con evidencia — desde el primer día.
+            Livio ordena toda tu operación de reparto desde que llega el primer pedido
+            hasta que cierras la caja. Sin depender de la memoria de nadie.
           </p>
 
           {/* CTAs */}
@@ -135,7 +136,7 @@ export default function Hero() {
               href="#contacto"
               className="group relative inline-flex items-center justify-center overflow-hidden rounded-lg bg-[#1E8E69] px-7 py-3.5 text-sm font-semibold text-[#F3F4EF] transition-all hover:bg-[#23A879] hover:shadow-xl hover:shadow-[#1E8E69]/20"
             >
-              <span className="relative z-10">Quiero ser empresa piloto</span>
+              <span className="relative z-10">Reservar mi cupo de lanzamiento</span>
               <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-[#F3F4EF]/15 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
             </a>
             <a
@@ -161,27 +162,13 @@ export default function Hero() {
 
           {/* Micro info */}
           <div
-            className="mt-8 flex flex-wrap gap-3"
+            className="mt-8"
             style={{ animation: "fade-up 0.7s ease-out 0.4s both" }}
           >
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-[#1E4A3F] bg-[#0C2420]/60 px-3.5 py-1.5 text-xs font-medium text-[#CFEFDF]">
-              <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              Lanzamiento en abril
-            </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-[#1E4A3F] bg-[#0C2420]/60 px-3.5 py-1.5 text-xs font-medium text-[#CFEFDF]">
-              <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              Cupos limitados
-            </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-[#1E4A3F] bg-[#0C2420]/60 px-3.5 py-1.5 text-xs font-medium text-[#CFEFDF]">
-              <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              2 primeros meses gratis
-            </span>
+            <p className="text-xs font-medium text-[#CFEFDF]">
+              ✓ 2 primeros meses sin costo  ✓ Lanzamiento abril 2026  ✓ Cupos
+              limitados — solo 15 empresas pioneras
+            </p>
           </div>
         </div>
 

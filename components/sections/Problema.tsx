@@ -5,19 +5,19 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 
 const painPoints = [
   {
-    title: "Primero hay que capturar todo lo que entra.",
+    title: "Los pedidos se pierden antes de llegar a la ruta.",
     description:
-      "Pedidos por WhatsApp, llamadas, mensajes y planillas. Entre responder clientes y anotar información, se pueden perder ventas.",
+      "Los pedidos llegan por WhatsApp mientras tu equipo está en la calle. Cuando nadie está pendiente, el pedido se pierde — y el cliente no vuelve a avisar.",
   },
   {
-    title: "Después hay que traducir eso en reparto real.",
+    title: "Todo depende de que una persona esté en todo.",
     description:
-      "Asignar pedidos, coordinar choferes, ajustar rutas y resolver cambios en el momento consume tiempo y atención todo el día.",
+      "Asignar choferes, armar rutas, resolver cambios en el momento. Todo vive en la cabeza de alguien. Si esa persona falla o simplemente no está, la operación se desordena.",
   },
   {
-    title: "Y al final, hay que armar el cierre pieza por pieza.",
+    title: "El cierre del día depende de que alguien lo junte todo a mano.",
     description:
-      "Fotos, pagos, entregas e incidencias no siempre quedan en un mismo lugar, así que cerrar bien depende de volver a juntar todo.",
+      "Quién entregó, quién no, cuánto cobró cada chofer. Esa información está en fotos de WhatsApp, llamadas y en la memoria de cada uno. Cuadrarlo bien depende de que alguien lo junte todo a mano.",
   },
 ];
 
@@ -34,24 +34,22 @@ export default function Problema() {
 
         <ScrollReveal delay={0.1}>
           <h2 className="max-w-3xl font-[family-name:var(--font-heading)] text-[clamp(28px,4.5vw,46px)] font-extrabold leading-[1.1] tracking-[-1px] text-[#F3F4EF]">
-            Mientras más crece tu operación, <span className="text-[#22B07D]">más te exige estar en todo.</span>
+            El reparto crece. <span className="text-[#22B07D]">El caos también.</span>
           </h2>
         </ScrollReveal>
 
         <ScrollReveal delay={0.2}>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-[#A9B5AF] lg:text-lg">
-            Los pedidos llegan por distintos canales y alguien tiene que mantener todo en orden:
-            anotarlos, coordinarlos y cerrar el día entendiendo qué pasó en terreno. Cuando muchas cosas
-            dependen de una misma persona, la operación se complica.
+            Un WhatsApp perdido. Un Excel desactualizado. Un día que no cierra.
           </p>
         </ScrollReveal>
 
         {/* Two-part layout: pain points + chaos mockup */}
-        <div className="mt-16 grid gap-12 lg:grid-cols-2 lg:gap-16 lg:items-center">
+        <div className="mt-8 grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
           {/* Left: Pain points */}
-          <div className="space-y-8">
+          <div className="space-y-6 lg:space-y-4">
             {painPoints.map((point, i) => (
-              <ScrollReveal key={i} delay={0.1 * (i + 1)}>
+              <ScrollReveal key={i} delay={0.1 * (i + 1)} className="lg:min-h-[132px]">
                 <div className="flex gap-4">
                   <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-[#22B07D]/15 bg-[#0D2420]">
                     <span className="text-sm font-bold text-[#22B07D]">
@@ -76,7 +74,6 @@ export default function Problema() {
             <ChaosMockup />
           </ScrollReveal>
         </div>
-
       </div>
     </section>
   );

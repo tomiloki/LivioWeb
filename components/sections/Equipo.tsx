@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
@@ -8,26 +8,26 @@ const team: { name: string; role: string; bio: string; photo: string; objectPosi
   {
     name: "Tomás Fuentealba",
     role: "Co-Founder & CEO",
-    bio: "Vio el problema desde adentro. Trabajó en terreno en distribución de agua y paquetería, coordinó con proveedores y conversó con choferes de decenas de negocios. Sabe exactamente dónde se rompe una operación logística — y construyó Livio para arreglarlo.",
+    bio: "Administrador de empresas que renunció a la gerencia para entender el problema desde adentro. Trabajó como chofer peoneta en distribución y hoy estudia logística para construir Livio con base real — no con supuestos. Livio nació de haberlo vivido, no de una presentación.",
     photo: "/images/FuentealbaIA.jpeg",
     objectPosition: "center center",
   },
   {
     name: "Tomás Escalante",
     role: "Co-Founder & CTO",
-    bio: "Estuvo en terreno desde el primer día entendiendo el problema con los clientes. Lidera la visión técnica del producto y las decisiones de desarrollo de Livio — para construir algo que funciona en la realidad, no solo en un demo.",
+    bio: "Lleva más de 7 meses dedicado a Livio desde el primer día — construyó la plataforma web y estuvo en terreno entendiendo el problema que el sistema tiene que resolver. Hoy lidera la construcción del MVP junto al equipo técnico. Aplica herramientas de IA donde realmente aportan — sin forzarlas donde no corresponde.",
     photo: "/images/EscalanteIA.png",
   },
   {
     name: "Esteban Cortés",
-    role: "Software Architect — Founder Team",
-    bio: "Diseñó y construyó la arquitectura completa de Livio. Su trabajo técnico es la base sobre la que opera el sistema — robusto, trazable y escalable desde el día uno.",
+    role: "Software Architect",
+    bio: "Más de 10 años en desarrollo de software. Hoy lidera equipos técnicos en proyectos de alta exigencia. En Livio es responsable de que la arquitectura del sistema sea sólida desde el día uno.",
     photo: "/images/estebanIA.png",
   },
   {
     name: "Ignacio Saavedra",
-    role: "Head of Operations — Founder Team",
-    bio: "Conoce el rubro logístico desde adentro. Acompaña la implementación con cada cliente para que el producto encaje con la realidad operativa del negocio.",
+    role: "Head of Operations",
+    bio: "Más de 10 años en jefaturas logísticas en empresas de gran escala. Conoce las herramientas, los problemas y la incomodidad real de los choferes. En Livio asegura que lo que construimos funcione en la realidad operativa de cada cliente.",
     photo: "/images/ignacioIA.jpeg",
   },
 ];
@@ -46,7 +46,7 @@ function TeamCard({ member }: { member: typeof team[0] }) {
         />
         <div className="absolute bottom-3 left-3">
           <span className="rounded-md bg-[#22B07D] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-white backdrop-blur-sm">
-            {member.role.split(" — ")[0]}
+            {member.role}
           </span>
         </div>
       </div>
@@ -87,18 +87,12 @@ export default function Equipo() {
           </p>
         </ScrollReveal>
         <ScrollReveal delay={0.1}>
-          <h2 className="mt-3 max-w-xl font-[family-name:var(--font-heading)] text-[clamp(28px,4.5vw,44px)] font-extrabold leading-[1.1] tracking-[-1px] text-[#F3F4EF]">
-            Construimos LIVIO porque vimos el problema de cerca.
+          <h2 className="mt-3 max-w-3xl font-[family-name:var(--font-heading)] text-[clamp(28px,4.5vw,44px)] font-extrabold leading-[1.1] tracking-[-1px] text-[#F3F4EF]">
+            Construimos Livio porque conocemos el problema desde adentro.
           </h2>
         </ScrollReveal>
-        <ScrollReveal delay={0.15}>
-          <p className="mt-4 max-w-lg text-base leading-relaxed text-[#A9B5AF] lg:text-lg">
-            Un equipo pequeño con foco en un problema real: la operación
-            logística diaria de pymes que merecen mejores herramientas.
-          </p>
-        </ScrollReveal>
 
-        {/* Mobile carousel — visible only on < sm */}
+        {/* Mobile carousel - visible only on < sm */}
         <div
           className="mt-14 sm:hidden"
           onTouchStart={handleTouchStart}
@@ -137,7 +131,7 @@ export default function Equipo() {
           </div>
         </div>
 
-        {/* Desktop grid — hidden on mobile */}
+        {/* Desktop grid - hidden on mobile */}
         <div className="mt-14 hidden gap-5 sm:grid sm:grid-cols-2 lg:grid-cols-4">
           {team.map((member, i) => (
             <ScrollReveal key={member.name} delay={0.1 * (i + 1)} className="h-full">

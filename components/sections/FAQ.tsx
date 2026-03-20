@@ -5,28 +5,48 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 
 const faqs = [
   {
-    q: "¿Qué tan difícil es implementar LIVIO en mi empresa?",
-    a: "El onboarding lo hacemos nosotros contigo. No necesitas conocimientos técnicos. En 2 semanas ya estás operando con el sistema.",
+    q: "¿Cuánto cuesta Livio?",
+    a: "Livio está diseñado para ser accesible para pymes. Sabemos que no tienes el presupuesto de una empresa grande — y nuestros precios lo reflejan. Los planes se definen según tu operación real. Cuéntanos cómo trabajas y te decimos qué te corresponde.",
   },
   {
-    q: "¿Mis choferes necesitan un celular especial?",
-    a: "No. La app funciona en cualquier smartphone Android o iPhone con conexión a internet. No requiere un equipo nuevo.",
+    q: "¿Funciona para mi rubro?",
+    a: "Livio funciona para cualquier negocio con reparto recurrente y flota propia — distribución de alimentos, insumos, flores, lácteos y más. Si tu operación es pedido → despacho → entrega con clientes fijos, Livio funciona para ti.",
   },
   {
-    q: "¿Qué pasa después de los 2 meses de piloto?",
-    a: "Si LIVIO te sirve, seguimos con un precio especial de lanzamiento. Si no, no hay compromiso — tus datos son tuyos y los puedes exportar en cualquier momento.",
+    q: "¿Qué tan difícil es implementar Livio?",
+    a: "La implementación la llevamos nosotros contigo. No necesitas conocimientos técnicos. En el piloto apuntamos a que estés operando en 30 días o menos — y en la práctica esperamos que sea bastante menos.",
   },
   {
-    q: "¿LIVIO reemplaza a mi despachador o coordinador?",
-    a: "No. LIVIO le da herramientas al operador para que haga su trabajo más rápido y con menos errores. La persona sigue tomando las decisiones — el sistema ordena la información.",
+    q: "¿Mis choferes necesitan aprender una app nueva?",
+    a: "La app del chofer está diseñada para ser lo más simple posible. No requiere capacitación formal ni un teléfono especial — funciona en cualquier smartphone con conexión a internet. En la práctica, el chofer aprende a usarla en los primeros repartos: registrar el método de pago, agregar un comentario y navegar con Maps. Si sabe usar el celular, en minutos entiende el flujo.",
   },
   {
-    q: "¿Funciona para mi rubro específico?",
-    a: "LIVIO está diseñado para pymes con reparto recurrente: agua embotellada, gas, distribución mayorista, Horeca. Si tu operación es pedido → despacho → entrega, te sirve.",
+    q: "¿Qué pasa con los datos de mis clientes?",
+    a: "Los datos de tu operación son tuyos. Nunca compartimos información que identifique directamente a tus clientes. Al terminar el contrato, eliminamos los datos sensibles de tu cuenta. Nuestra política de privacidad completa la revisas antes de firmar.",
+  },
+  {
+    q: "¿Qué pasa si el sistema falla en medio de la operación?",
+    a: "Durante el piloto el equipo de Livio está disponible para resolver cualquier problema. Puedes llamarnos o escribirnos y respondemos en menos de una hora. Al inicio la relación es directa y cercana.",
+  },
+  {
+    q: "¿Livio reemplaza a mi despachador o coordinador?",
+    a: "No. Livio le da a tu operador las herramientas para hacer su trabajo más rápido y con menos errores. La persona sigue tomando las decisiones — el sistema ordena la información para que pueda hacerlo mejor.",
+  },
+  {
+    q: "¿Y si en mi negocio no hay un despachador — el dueño hace todo?",
+    a: "Livio también funciona para eso. Si eres tú quien coordina los pedidos y además sales a repartir, tenemos contemplada una solución para operar desde el celular sin necesitar estar en el computador todo el día. Los pedidos llegan solos y tú defines la ruta cuando puedas. Estamos trabajando en la mejor forma de resolverlo para este perfil — y es parte de lo que afinaremos con los primeros clientes pioneros.",
   },
   {
     q: "¿Cómo funciona la recepción de pedidos por WhatsApp?",
-    a: "Tu cliente envía un mensaje de WhatsApp como lo haría normalmente. Una IA interpreta el pedido y lo estructura automáticamente. El operador revisa, confirma y asigna. Las excepciones las resuelve la persona, no el bot.",
+    a: "Tu cliente escribe como siempre — en lenguaje natural. Livio interpreta el mensaje y lo estructura. No es un bot con opciones fijas. La conversación se siente humana porque está diseñada para serlo. Los pedidos claros entran solos — las excepciones las resuelve tu equipo.",
+  },
+  {
+    q: "¿Qué pasa después del piloto gratuito?",
+    a: "Si Livio te sirve, continuamos con un precio especial de lanzamiento. Si no, no hay compromiso — tus datos son tuyos y puedes exportarlos cuando quieras.",
+  },
+  {
+    q: "¿Hasta cuándo está disponible el piloto?",
+    a: "El piloto gratuito de 2 meses está disponible para las primeras 15 empresas pioneras. Una vez que se llenen los cupos, se cierra el programa.",
   },
 ];
 
@@ -56,7 +76,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
       </button>
       <div
         className={`overflow-hidden transition-all duration-300 ${
-          open ? "max-h-48 pb-5" : "max-h-0"
+          open ? "max-h-[1000px] pb-5" : "max-h-0"
         }`}
       >
         <p className="text-sm leading-relaxed text-[#A9B5AF]">{a}</p>

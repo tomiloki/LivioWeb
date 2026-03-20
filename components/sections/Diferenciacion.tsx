@@ -33,7 +33,7 @@ export default function Diferenciacion() {
 
             <ScrollReveal delay={0.2}>
               <p className="mt-5 text-base leading-relaxed text-[#A9B5AF] lg:text-lg">
-                Hoy hay una persona que sabe dónde está cada chofer, qué pedidos van atrasados y cuánto se cobró. LIVIO hace que esa información no dependa de nadie en particular — queda visible, trazable y disponible para todo el equipo.
+                Hoy hay una persona que sabe dónde está cada chofer, qué pedidos van atrasados y cuánto se cobró. Livio hace que esa información quede visible para todos — para que tu equipo tome mejores decisiones y tú tengas el control sin tener que preguntar.
               </p>
             </ScrollReveal>
 
